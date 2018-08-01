@@ -11,45 +11,57 @@
 
 @implementation MHD_AlertController
 #pragma mark 无按钮的alert框
-+ (void)mhd_alertTitle:(NSString *)titleStr message:(NSString *)messageStr delayTime:(NSTimeInterval)time click:(void (^)())complent
++ (void)mhd_alertTitle:(NSString *)titleStr message:(NSString *)messageStr delayTime:(NSTimeInterval)time click:(void (^)(void))complent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
     if ([self getCurrentVC].navigationController) {
         [[self getCurrentVC].navigationController presentViewController:alertControl animated:true completion:^{
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                [alertControl dismissViewControllerAnimated:true completion:complent];
+                [alertControl dismissViewControllerAnimated:true completion:^{
+                    complent();
+                }];
             });
         }];
     }else if([self getPresentedViewController]){
         [[self getPresentedViewController] presentViewController:alertControl animated:true completion:^{
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                [alertControl dismissViewControllerAnimated:true completion:complent];
+                [alertControl dismissViewControllerAnimated:true completion:^{
+                    complent();
+                }];
             });
         }];
     }else{
         [[self getCurrentVC] presentViewController:alertControl animated:true completion:^{
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                [alertControl dismissViewControllerAnimated:true completion:complent];
+                [alertControl dismissViewControllerAnimated:true completion:^{
+                    complent();
+                }];
             });
         }];
     }
 }
 #pragma mark 一个按钮的alert框
-+ (void)mhd_oneButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr btnTitle:(NSString *)btnStr btnClick:(void (^)())complent
++ (void)mhd_oneButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr btnTitle:(NSString *)btnStr btnClick:(void (^)(void))complent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
-    [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:complent]];
+    [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        complent();
+    }]];
     [self presentAlertController:alertControl];
 }
 #pragma mark 两个按钮的alert框
-+ (void)mhd_twoButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr confirmTitle:(NSString *)confirmStr confirmClick:(void (^)())confirmComplent cancelTitle:(NSString *)cancelStr cancelClick:(void (^)())cancelComplent
++ (void)mhd_twoButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr confirmTitle:(NSString *)confirmStr confirmClick:(void (^)(void))confirmComplent cancelTitle:(NSString *)cancelStr cancelClick:(void (^)(void))cancelComplent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
-    [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:cancelComplent]];
-    [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:confirmComplent]];
+    [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        cancelComplent();
+    }]];
+    [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        confirmComplent();
+    }]];
     [self presentAlertController:alertControl];
 }
 #pragma mark 多按钮alert提示框
@@ -78,7 +90,7 @@
     [self presentAlertController:alertControl];
 }
 #pragma mark 无按钮的sheet框
-+ (void)mhd_sheetTitle:(NSString *)titleStr message:(NSString *)messageStr delayTime:(NSTimeInterval)time click:(void (^)())complent
++ (void)mhd_sheetTitle:(NSString *)titleStr message:(NSString *)messageStr delayTime:(NSTimeInterval)time click:(void (^)(void))complent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleActionSheet];
     if ([self getCurrentVC].navigationController) {
@@ -105,18 +117,24 @@
     }
 }
 #pragma mark 一个按钮的sheet提示框
-+ (void)mhd_oneButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr btnTitle:(NSString *)btnStr btnClick:(void (^)())complent
++ (void)mhd_oneButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr btnTitle:(NSString *)btnStr btnClick:(void (^)(void))complent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:complent]];
+    [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        complent();
+    }]];
     [self presentAlertController:alertControl];
 }
 #pragma mark 两个按钮的sheet提示框
-+ (void)mhd_twoButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr confirmTitle:(NSString *)confirmStr confirmClick:(void (^)())confirmComplent cancelTitle:(NSString *)cancelStr cancelClick:(void (^)())cancelComplent
++ (void)mhd_twoButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr confirmTitle:(NSString *)confirmStr confirmClick:(void (^)(void))confirmComplent cancelTitle:(NSString *)cancelStr cancelClick:(void (^)(void))cancelComplent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:confirmComplent]];
-    [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:cancelComplent]];
+    [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        confirmComplent();
+    }]];
+    [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        cancelComplent();
+    }]];
     [self presentAlertController:alertControl];
 }
 #pragma mark 多按钮的sheet提示框
