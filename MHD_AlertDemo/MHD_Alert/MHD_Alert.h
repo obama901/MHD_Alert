@@ -10,5 +10,6 @@
 #define MHD_Alert_h
 
 #import "MHD_AlertController.h"
+#import "MHD_TextFieldAlertController.h"
 
 #endif /* MHD_Alert_h */

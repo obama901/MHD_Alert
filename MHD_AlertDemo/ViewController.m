@@ -20,11 +20,13 @@
 {
     NSMutableArray *alertTypeArr;
     NSMutableArray *sheetTypeArr;
+    NSMutableArray *textFieldTypeArr;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     alertTypeArr = [NSMutableArray arrayWithObjects:@"无按钮alert弹框",@"单按钮alert弹框",@"双按钮alert弹框",@"多按钮alert弹框",@"多按钮样式alert弹框", nil];
     sheetTypeArr = [NSMutableArray arrayWithObjects:@"无按钮sheet弹框",@"单按钮sheet弹框",@"双按钮sheet弹框",@"多按钮sheet弹框",@"多按钮样式sheet弹框", nil];
+    textFieldTypeArr = [NSMutableArray arrayWithObjects:@"单输入框双按钮弹框",@"双输入框双按钮弹框",@"多输入框多按钮弹框", nil];
     [self mhdAlertTable];
 }
 #pragma mark alert展示列表
@@ -50,6 +52,9 @@
         case 1:
             cell.textLabel.text = sheetTypeArr[indexPath.row];
             break;
+        case 2:
+            cell.textLabel.text = textFieldTypeArr[indexPath.row];
+            break;
         default:
             cell.textLabel.text = @"";
             break;
@@ -66,6 +71,9 @@
         case 1:
             return sheetTypeArr.count;
             break;
+        case 2:
+            return textFieldTypeArr.count;
+            break;
         default:
             return 0;
             break;
@@ -74,7 +82,7 @@
 #pragma mark 返回区的个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 #pragma mark 单元格点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -239,6 +247,43 @@
             }
         }
             break;
+        case 2://textfield
+        {
+            switch (indexPath.row) {
+                case 0://单输入框双按钮弹框
+                {
+                    [MHD_TextFieldAlertController
+                     mhd_oneTextFieldTitle:@"单输入框Textfield"
+                     message:@"MHD_Message"
+                     placeholder:@"MHD_Placeholder"
+                     cancelTitle:@"MHD_取消"
+                     cancelClick:^(NSString *contextStr)
+                    {
+                        NSLog(@"[MHD_TextFieldAlertController][%@]取消",contextStr);
+                    }
+                     confirmTitle:@"MHD_确认"
+                     confirmClick:^(NSString *contextStr)
+                    {
+                        NSLog(@"[MHD_TextFieldAlertController][%@]确认",contextStr);
+                    }];
+                }
+                    break;
+                case 1://双输入框双按钮弹框
+                {
+                    
+                }
+                    break;
+                case 2://多输入框多按钮弹框
+                {
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
         default:
             break;
     }
@@ -251,6 +296,9 @@
             break;
         case 1:
             return @"Sheet弹框";
+            break;
+        case 2:
+            return @"TestField弹框";
             break;
         default:
             return @"";

@@ -15,6 +15,7 @@
 		3264E77C2111B57000BDC9C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3264E77B2111B57000BDC9C5 /* main.m */; };
 		3264E7862111B57100BDC9C5 /* MHD_AlertDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3264E7852111B57100BDC9C5 /* MHD_AlertDemoTests.m */; };
 		3264E7932111B6D600BDC9C5 /* MHD_AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3264E7912111B6D600BDC9C5 /* MHD_AlertController.m */; };
+		6C5D120E21122D1E00C5BEBF /* MHD_TextFieldAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D120D21122D1E00C5BEBF /* MHD_TextFieldAlertController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		3264E7912111B6D600BDC9C5 /* MHD_AlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHD_AlertController.m; sourceTree = "<group>"; };
 		3264E7922111B6D600BDC9C5 /* MHD_AlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHD_AlertController.h; sourceTree = "<group>"; };
 		3264E7942111B72500BDC9C5 /* MHD_Alert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHD_Alert.h; sourceTree = "<group>"; };
+		6C5D120C21122D1E00C5BEBF /* MHD_TextFieldAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHD_TextFieldAlertController.h; sourceTree = "<group>"; };
+		6C5D120D21122D1E00C5BEBF /* MHD_TextFieldAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHD_TextFieldAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				3264E7942111B72500BDC9C5 /* MHD_Alert.h */,
 				3264E7922111B6D600BDC9C5 /* MHD_AlertController.h */,
 				3264E7912111B6D600BDC9C5 /* MHD_AlertController.m */,
+				6C5D120C21122D1E00C5BEBF /* MHD_TextFieldAlertController.h */,
+				6C5D120D21122D1E00C5BEBF /* MHD_TextFieldAlertController.m */,
 			);
 			path = MHD_Alert;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3264E7932111B6D600BDC9C5 /* MHD_AlertController.m in Sources */,
+				6C5D120E21122D1E00C5BEBF /* MHD_TextFieldAlertController.m in Sources */,
 				3264E7712111B56D00BDC9C5 /* ViewController.m in Sources */,
 				3264E77C2111B57000BDC9C5 /* main.m in Sources */,
 				3264E76E2111B56D00BDC9C5 /* AppDelegate.m in Sources */,
