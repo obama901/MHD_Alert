@@ -13,44 +13,48 @@
 #pragma mark 无按钮的alert框
 + (void)mhd_alertTitle:(NSString *)titleStr message:(NSString *)messageStr delayTime:(NSTimeInterval)time click:(void (^)(void))complent
 {
-    UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
-    if ([self getCurrentVC].navigationController) {
-        [[self getCurrentVC].navigationController presentViewController:alertControl animated:true completion:^{
-            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
-            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                [alertControl dismissViewControllerAnimated:true completion:^{
-                    complent();
-                }];
-            });
-        }];
-    }else if([self getPresentedViewController]){
-        [[self getPresentedViewController] presentViewController:alertControl animated:true completion:^{
-            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
-            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                [alertControl dismissViewControllerAnimated:true completion:^{
-                    complent();
-                }];
-            });
-        }];
-    }else{
-        [[self getCurrentVC] presentViewController:alertControl animated:true completion:^{
-            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
-            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                [alertControl dismissViewControllerAnimated:true completion:^{
-                    complent();
-                }];
-            });
-        }];
+    @autoreleasepool{
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
+        if ([self getCurrentVC].navigationController) {
+            [[self getCurrentVC].navigationController presentViewController:alertControl animated:true completion:^{
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [alertControl dismissViewControllerAnimated:true completion:^{
+                        complent();
+                    }];
+                });
+            }];
+        }else if([self getPresentedViewController]){
+            [[self getPresentedViewController] presentViewController:alertControl animated:true completion:^{
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [alertControl dismissViewControllerAnimated:true completion:^{
+                        complent();
+                    }];
+                });
+            }];
+        }else{
+            [[self getCurrentVC] presentViewController:alertControl animated:true completion:^{
+                dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
+                dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+                    [alertControl dismissViewControllerAnimated:true completion:^{
+                        complent();
+                    }];
+                });
+            }];
+        }
     }
 }
 #pragma mark 一个按钮的alert框
 + (void)mhd_oneButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr btnTitle:(NSString *)btnStr btnClick:(void (^)(void))complent
 {
-    UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
-    [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        complent();
-    }]];
-    [self presentAlertController:alertControl];
+    @autoreleasepool{
+        UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
+        [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            complent();
+        }]];
+        [self presentAlertController:alertControl];
+    }
 }
 #pragma mark 两个按钮的alert框
 + (void)mhd_twoButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr confirmTitle:(NSString *)confirmStr confirmClick:(void (^)(void))confirmComplent cancelTitle:(NSString *)cancelStr cancelClick:(void (^)(void))cancelComplent
