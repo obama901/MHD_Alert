@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MHD_Alert.h"
 
+
 //屏幕尺寸
 #define MAIN_SIZE ([ [ UIScreen mainScreen ] bounds ].size)
 #define MHD_ALERT_CELL @"mhd_alert_cell"
@@ -252,30 +253,23 @@
             switch (indexPath.row) {
                 case 0://单输入框双按钮弹框
                 {
-                    [MHD_TextFieldAlertController
-                     mhd_oneTextFieldTitle:@"单输入框Textfield"
-                     message:@"MHD_Message"
-                     placeholder:@"MHD_Placeholder"
-                     cancelTitle:@"MHD_取消"
-                     cancelClick:^(NSString *contextStr)
-                    {
-                        NSLog(@"[MHD_TextFieldAlertController][%@]取消",contextStr);
-                    }
-                     confirmTitle:@"MHD_确认"
-                     confirmClick:^(NSString *contextStr)
-                    {
-                        NSLog(@"[MHD_TextFieldAlertController][%@]确认",contextStr);
-                    }];
+                    [MHD_TextFieldAlertController mhd_oneTextFieldTitle:@"单输入框Textfield" message:@"MHD_Message" placeholder:@"MHD_Placeholder" cancelTitle:@"MHD_取消" confirmTitle:@"MHD_确认" click:^(BOOL isConfirm, NSString *contextStr) {
+                        NSLog(@"[MHD_TextFieldAlertController]%@ %@",isConfirm?@"确认":@"取消",contextStr);
+                     }];
                 }
                     break;
                 case 1://双输入框双按钮弹框
                 {
-                    
+                    [MHD_TextFieldAlertController mhd_twoTextFieldTitle:@"双输入框Textfield" message:@"MHD_Message" firstPlace:@"MHD_Placeholder1" secondPlace:@"MHD_Placeholder2" cancelTitle:@"MHD_取消" confirmTitle:@"MHD_确认" click:^(BOOL isConfirm, NSString *firstStr, NSString *secondStr) {
+                        NSLog(@"[MHD_TextFieldAlertController]%@ %@ %@",isConfirm?@"确认":@"取消",firstStr,secondStr);
+                    }];
                 }
                     break;
                 case 2://多输入框多按钮弹框
                 {
-                    
+                    [MHD_TextFieldAlertController mhd_moreTextFieldTitle:@"多输入框Textfield" message:@"MHD_Message" placeHolders:@[@"MHD_Placeholder1",@"MHD_Placeholder2",@"MHD_Placeholder3",@"MHD_Placeholder4"] buttonTitleAry:@[@"MHD_按钮1",@"MHD_按钮2",@"MHD_按钮3"] buttonClick:^(int btnOrder, NSArray<NSString *> *contextArr) {
+                        NSLog(@"[MHD_TextFieldAlertController]按钮%d %@",btnOrder+1,contextArr);
+                    }];
                 }
                     break;
                     
@@ -298,7 +292,7 @@
             return @"Sheet弹框";
             break;
         case 2:
-            return @"TestField弹框";
+            return @"TextField弹框";
             break;
         default:
             return @"";

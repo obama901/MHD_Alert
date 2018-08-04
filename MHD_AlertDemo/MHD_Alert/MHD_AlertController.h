@@ -47,7 +47,7 @@
  @param btnAry 按钮标题数组
  @param complent 按钮点击事件
  */
-+ (void)mhd_moreButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray *)btnAry buttonClick:(void(^)(int btnOrder))complent;
++ (void)mhd_moreButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray <NSString *>*)btnAry buttonClick:(void(^)(int btnOrder))complent;
 /**
  无按钮的sheet框
 
@@ -85,7 +85,7 @@
  @param btnAry 按钮数组
  @param complent 按钮点击事件
  */
-+ (void)mhd_moreButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray *)btnAry buttonClick:(void(^)(int btnOrder))complent;
++ (void)mhd_moreButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray <NSString *>*)btnAry buttonClick:(void(^)(int btnOrder))complent;
 /**
  多按钮alert弹框(可选按钮类型)
  按钮style:
@@ -98,7 +98,7 @@
  @param styleAry 按钮风格数组
  @param complent 按钮点击事件
  */
-+ (void)mhd_moreButtonAlertFlexibleTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray *)btnAry styleAry:(NSArray *)styleAry buttonClick:(void(^)(int btnOrder))complent;
++ (void)mhd_moreButtonAlertFlexibleTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray <NSString *>*)btnAry styleAry:(NSArray <NSNumber *>*)styleAry buttonClick:(void(^)(int btnOrder))complent;
 /**
  多按钮的sheet提示框(可选按钮类型)
  按钮style:

@@ -65,7 +65,7 @@
     [self presentAlertController:alertControl];
 }
 #pragma mark 多按钮alert提示框
-+ (void)mhd_moreButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray *)btnAry buttonClick:(void (^)(int))complent
++ (void)mhd_moreButtonAlertTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray <NSString *>*)btnAry buttonClick:(void (^)(int))complent
 {
      UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
     for (int i = 0; i < btnAry.count; i ++)
@@ -77,7 +77,7 @@
     [self presentAlertController:alertControl];
 }
 #pragma mark 多按钮alert弹框(可选按钮类型)
-+ (void)mhd_moreButtonAlertFlexibleTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray *)btnAry styleAry:(NSArray *)styleAry buttonClick:(void (^)(int))complent
++ (void)mhd_moreButtonAlertFlexibleTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray <NSString *>*)btnAry styleAry:(NSArray <NSNumber *>*)styleAry buttonClick:(void (^)(int))complent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
     for (int i = 0; i < btnAry.count; i ++)
@@ -138,7 +138,7 @@
     [self presentAlertController:alertControl];
 }
 #pragma mark 多按钮的sheet提示框
-+ (void)mhd_moreButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray *)btnAry buttonClick:(void (^)(int))complent
++ (void)mhd_moreButtonSheetTitle:(NSString *)titleStr message:(NSString *)messageStr buttonTitleAry:(NSArray <NSString *>*)btnAry buttonClick:(void (^)(int))complent
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleActionSheet];
     for (int i = 0; i < btnAry.count; i ++) {
