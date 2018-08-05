@@ -35,5 +35,14 @@
  @param complent 按钮点击回调
  */
 + (void)mhd_twoTextFieldTitle:(NSString *)titleStr message:(NSString *)messageStr firstPlace:(NSString *)fPlaceStr secondPlace:(NSString *)sPlaceStr cancelTitle:(NSString *)cancelStr confirmTitle:(NSString *)confirmStr click:(void(^)(BOOL isConfirm,NSString *firstStr,NSString *secondStr))complent;
+/**
+ 多输入框多按钮弹框
+
+ @param titleStr alert标题
+ @param messageStr alert信息
+ @param placeHolders 输入框占位字数组
+ @param btnAry 按钮标题数组
+ @param complent 按钮点击回调
+ */
 + (void)mhd_moreTextFieldTitle:(NSString *)titleStr message:(NSString *)messageStr placeHolders:(NSArray <NSString *>*)placeHolders buttonTitleAry:(NSArray <NSString *>*)btnAry buttonClick:(void(^)(int btnOrder,NSArray <NSString *>*contextArr))complent;
 @end
