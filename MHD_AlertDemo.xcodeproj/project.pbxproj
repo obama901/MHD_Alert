@@ -11,10 +11,11 @@
 		3264E7712111B56D00BDC9C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3264E7702111B56D00BDC9C5 /* ViewController.m */; };
 		3264E7742111B56D00BDC9C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3264E7722111B56D00BDC9C5 /* Main.storyboard */; };
 		3264E7762111B57000BDC9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3264E7752111B57000BDC9C5 /* Assets.xcassets */; };
-		3264E7792111B57000BDC9C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3264E7772111B57000BDC9C5 /* LaunchScreen.storyboard */; };
 		3264E77C2111B57000BDC9C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3264E77B2111B57000BDC9C5 /* main.m */; };
 		3264E7862111B57100BDC9C5 /* MHD_AlertDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3264E7852111B57100BDC9C5 /* MHD_AlertDemoTests.m */; };
 		3264E7932111B6D600BDC9C5 /* MHD_AlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3264E7912111B6D600BDC9C5 /* MHD_AlertController.m */; };
+		6C26D58421174E6000896B82 /* MHD_GetCurrentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C26D58321174E6000896B82 /* MHD_GetCurrentController.m */; };
+		6C26D5862117560000896B82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C26D5852117560000896B82 /* LaunchScreen.storyboard */; };
 		6C5D120E21122D1E00C5BEBF /* MHD_TextFieldAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D120D21122D1E00C5BEBF /* MHD_TextFieldAlertController.m */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +37,6 @@
 		3264E7702111B56D00BDC9C5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3264E7732111B56D00BDC9C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3264E7752111B57000BDC9C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3264E7782111B57000BDC9C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3264E77A2111B57000BDC9C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3264E77B2111B57000BDC9C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3264E7812111B57100BDC9C5 /* MHD_AlertDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHD_AlertDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +45,9 @@
 		3264E7912111B6D600BDC9C5 /* MHD_AlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHD_AlertController.m; sourceTree = "<group>"; };
 		3264E7922111B6D600BDC9C5 /* MHD_AlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHD_AlertController.h; sourceTree = "<group>"; };
 		3264E7942111B72500BDC9C5 /* MHD_Alert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHD_Alert.h; sourceTree = "<group>"; };
+		6C26D58221174E6000896B82 /* MHD_GetCurrentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHD_GetCurrentController.h; sourceTree = "<group>"; };
+		6C26D58321174E6000896B82 /* MHD_GetCurrentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHD_GetCurrentController.m; sourceTree = "<group>"; };
+		6C26D5852117560000896B82 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C5D120C21122D1E00C5BEBF /* MHD_TextFieldAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHD_TextFieldAlertController.h; sourceTree = "<group>"; };
 		6C5D120D21122D1E00C5BEBF /* MHD_TextFieldAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHD_TextFieldAlertController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +98,7 @@
 				3264E7902111B61700BDC9C5 /* MHD_Alert */,
 				3264E7722111B56D00BDC9C5 /* Main.storyboard */,
 				3264E7752111B57000BDC9C5 /* Assets.xcassets */,
-				3264E7772111B57000BDC9C5 /* LaunchScreen.storyboard */,
+				6C26D5852117560000896B82 /* LaunchScreen.storyboard */,
 				3264E77A2111B57000BDC9C5 /* Info.plist */,
 				3264E77B2111B57000BDC9C5 /* main.m */,
 			);
@@ -119,6 +122,8 @@
 				3264E7912111B6D600BDC9C5 /* MHD_AlertController.m */,
 				6C5D120C21122D1E00C5BEBF /* MHD_TextFieldAlertController.h */,
 				6C5D120D21122D1E00C5BEBF /* MHD_TextFieldAlertController.m */,
+				6C26D58221174E6000896B82 /* MHD_GetCurrentController.h */,
+				6C26D58321174E6000896B82 /* MHD_GetCurrentController.m */,
 			);
 			path = MHD_Alert;
 			sourceTree = "<group>";
@@ -203,7 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3264E7792111B57000BDC9C5 /* LaunchScreen.storyboard in Resources */,
+				6C26D5862117560000896B82 /* LaunchScreen.storyboard in Resources */,
 				3264E7762111B57000BDC9C5 /* Assets.xcassets in Resources */,
 				3264E7742111B56D00BDC9C5 /* Main.storyboard in Resources */,
 			);
@@ -223,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C26D58421174E6000896B82 /* MHD_GetCurrentController.m in Sources */,
 				3264E7932111B6D600BDC9C5 /* MHD_AlertController.m in Sources */,
 				6C5D120E21122D1E00C5BEBF /* MHD_TextFieldAlertController.m in Sources */,
 				3264E7712111B56D00BDC9C5 /* ViewController.m in Sources */,
@@ -256,14 +262,6 @@
 				3264E7732111B56D00BDC9C5 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3264E7772111B57000BDC9C5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3264E7782111B57000BDC9C5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

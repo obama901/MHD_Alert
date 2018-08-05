@@ -25,6 +25,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"MHD_ALERT";
     alertTypeArr = [NSMutableArray arrayWithObjects:@"无按钮alert弹框",@"单按钮alert弹框",@"双按钮alert弹框",@"多按钮alert弹框",@"多按钮样式alert弹框", nil];
     sheetTypeArr = [NSMutableArray arrayWithObjects:@"无按钮sheet弹框",@"单按钮sheet弹框",@"双按钮sheet弹框",@"多按钮sheet弹框",@"多按钮样式sheet弹框", nil];
     textFieldTypeArr = [NSMutableArray arrayWithObjects:@"单输入框双按钮弹框",@"双输入框双按钮弹框",@"多输入框多按钮弹框", nil];
