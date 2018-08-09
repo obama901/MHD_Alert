@@ -20,10 +20,10 @@
         textField.placeholder = placeholderStr;
     }];
     [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        complent(false,alertControl.textFields.firstObject.text);
+        !complent?:complent(false,alertControl.textFields.firstObject.text);
     }]];
     [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        complent(true,alertControl.textFields.firstObject.text);
+        !complent?:complent(true,alertControl.textFields.firstObject.text);
     }]];
     [MHD_GetCurrentController mhd_presentAlertController:alertControl];
 }
@@ -39,10 +39,10 @@
         textField.secureTextEntry = true;
     }];
     [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        complent(false,alertControl.textFields.firstObject.text,alertControl.textFields.lastObject.text);
+        !complent?:complent(false,alertControl.textFields.firstObject.text,alertControl.textFields.lastObject.text);
     }]];
     [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        complent(true,alertControl.textFields.firstObject.text,alertControl.textFields.lastObject.text);
+        !complent?:complent(true,alertControl.textFields.firstObject.text,alertControl.textFields.lastObject.text);
     }]];
     [MHD_GetCurrentController mhd_presentAlertController:alertControl];
 }
@@ -63,7 +63,7 @@
                 for (UITextField *alertTF in alertControl.textFields) {
                     [contextArr addObject:alertTF.text];
                 }
-                complent(i,contextArr);
+                !complent?:complent(i,contextArr);
             }]];
         }
         [MHD_GetCurrentController mhd_presentAlertController:alertControl];

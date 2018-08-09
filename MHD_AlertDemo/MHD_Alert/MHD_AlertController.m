@@ -20,7 +20,7 @@
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 [alertControl dismissViewControllerAnimated:true completion:^{
-                    complent();
+                    !complent?:complent();
                 }];
             });
         }];
@@ -29,7 +29,7 @@
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 [alertControl dismissViewControllerAnimated:true completion:^{
-                    complent();
+                    !complent?:complent();
                 }];
             });
         }];
@@ -38,7 +38,7 @@
             dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time/*延迟执行时间*/ * NSEC_PER_SEC));
             dispatch_after(delayTime, dispatch_get_main_queue(), ^{
                 [alertControl dismissViewControllerAnimated:true completion:^{
-                    complent();
+                    !complent?:complent();
                 }];
             });
         }];
@@ -49,7 +49,7 @@
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
     [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        complent();
+        !complent?:complent();
     }]];
     [MHD_GetCurrentController mhd_presentAlertController:alertControl];
 }
@@ -58,10 +58,10 @@
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleAlert];
     [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        cancelComplent();
+        !cancelComplent?:cancelComplent();
     }]];
     [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        confirmComplent();
+        !confirmComplent?:confirmComplent();
     }]];
     [MHD_GetCurrentController mhd_presentAlertController:alertControl];
 }
@@ -74,7 +74,7 @@
         for (int i = 0; i < btnAry.count; i ++)
         {
             [alertControl addAction:[UIAlertAction actionWithTitle:btnAry[i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                complent(i);
+                !complent?:complent(i);
             }]];
         }
         [MHD_GetCurrentController mhd_presentAlertController:alertControl];
@@ -90,7 +90,7 @@
         {
             NSInteger styleInt = [styleAry[i] integerValue];
             [alertControl addAction:[UIAlertAction actionWithTitle:btnAry[i] style:styleInt handler:^(UIAlertAction * _Nonnull action) {
-                complent(i);
+                !complent?:complent(i);
             }]];
         }
         [MHD_GetCurrentController mhd_presentAlertController:alertControl];
@@ -128,7 +128,7 @@
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleActionSheet];
     [alertControl addAction:[UIAlertAction actionWithTitle:btnStr style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        complent();
+        !complent?:complent();
     }]];
     [MHD_GetCurrentController mhd_presentAlertController:alertControl];
 }
@@ -137,10 +137,10 @@
 {
     UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleActionSheet];
     [alertControl addAction:[UIAlertAction actionWithTitle:confirmStr style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        confirmComplent();
+        !confirmComplent?:confirmComplent();
     }]];
     [alertControl addAction:[UIAlertAction actionWithTitle:cancelStr style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        cancelComplent();
+        !cancelComplent?:cancelComplent();
     }]];
     [MHD_GetCurrentController mhd_presentAlertController:alertControl];
 }
@@ -152,7 +152,7 @@
         UIAlertController *alertControl = [UIAlertController alertControllerWithTitle:titleStr message:messageStr preferredStyle:UIAlertControllerStyleActionSheet];
         for (int i = 0; i < btnAry.count; i ++) {
             [alertControl addAction:[UIAlertAction actionWithTitle:btnAry[i] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                complent(i);
+                !complent?:complent(i);
             }]];
         }
         [MHD_GetCurrentController mhd_presentAlertController:alertControl];
@@ -168,7 +168,7 @@
         {
             NSInteger styleInt = [styleAry[i] integerValue];
             [alertControl addAction:[UIAlertAction actionWithTitle:btnAry[i] style:styleInt handler:^(UIAlertAction * _Nonnull action) {
-                complent(i);
+                !complent?:complent(i);
             }]];
         }
         [MHD_GetCurrentController mhd_presentAlertController:alertControl];
